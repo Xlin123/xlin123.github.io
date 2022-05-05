@@ -1,0 +1,96 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I love you</title>
+    <script src="~/js/site.js"></script>
+    <link href="~/css/site.css" rel="stylesheet">
+</head>
+
+<body onload="onPageLoad()">
+    <div class="container">
+
+        <div id="songSection" class="row">
+            
+            <div class="col">
+         
+                <div class="mb-3">
+                <input class="btn btn-primary btn-lg" type="button" onclick="requestAuthorization()" value="Request Authorization"><br/>
+
+                
+            </div>
+
+
+            <div class="mb-3">
+                    <label for="songs" class="form-label">Songs</label>
+                    <iframe id="song0" style="border-radius:12px" src="https://open.spotify.com/embed/track/5FkoSXiJPKTNyYgALRJFhD?utm_source=generator" width="250" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                    <iframe id="song0" style="border-radius:12px" src="https://open.spotify.com/embed/track/5FkoSXiJPKTNyYgALRJFhD?utm_source=generator" width="250" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                    <iframe id="song0" style="border-radius:12px" src="https://open.spotify.com/embed/track/5FkoSXiJPKTNyYgALRJFhD?utm_source=generator" width="250" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                </div>
+
+        </div>
+
+ 
+
+        <div id="deviceSection" class="row">
+            <div class="col">
+
+                <form action = "" method = "post">
+                    <select name = "1" id="loveSongs" >
+                    <option value = "Love you" selected>Love Song 1</option>
+                    <option value = "Love you more">Love Song 2</option>
+                     <option value = "Love you more than you">Love Song 3</option>
+                    </select>
+
+
+                    <select name = "2" id="sadSongs" >
+                    <option value = "Sad Song 1" selected>Sad Song 1</option>
+                    <option value = "Sad Song 2">Sad Song 2</option>
+                    <option value = "Sad Song 3">Sad Song 3</option>
+                    </select>
+
+
+         
+                    <select name = "3" id="hardSongs" >
+                    <option value = "Hard Song 1" selected>Hard Song 1</option>
+                    <option value = "Hard Song 2">Hard Song 2</option>
+                    <option value = "Hard Song 3">Hard Song 3</option>
+                    </select>
+                    <input type = "submit" value = "Submit" onclick = />
+                </form>
+
+
+
+
+
+                <div class="row">
+                    <div class="col">
+                        <input type="button" class="btn btn-dark" onclick="previous()" value="Prev">
+                        <input type="button" class="btn btn-dark" onclick="play()" value="Play">
+                        <input type="button" class="btn btn-dark" onclick="shuffle()" value="Shuffle">
+                        <input type="button" class="btn btn-dark" onclick="pause()" value="Pause">
+                        <input type="button" class="btn btn-dark" onclick="next()" value="Next">
+                    </div>
+                </div>
+
+
+                
+
+               
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+</body>
+
+</html>
