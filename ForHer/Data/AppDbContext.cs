@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using ForHer.Models;
 using Microsoft.EntityFrameworkCore;
-using ForHer.Models;
 
 namespace ForHer.Data
 {
     public class AppDbContext : DbContext
     {
-        public AppDbContext(DbContextOptions options) :base(options)
+        public AppDbContext(DbContextOptions options) : base(options)
         {
 
         }

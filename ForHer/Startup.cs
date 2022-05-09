@@ -1,17 +1,12 @@
 using ForHer.Data;
 using ForHer.GraphQL;
+using GraphQL.Server.Ui.Voyager;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using GraphQL.Server.Ui.Voyager;
 
 namespace ForHer
 {
@@ -33,7 +28,7 @@ namespace ForHer
                 .AddGraphQLServer()
                 .AddQueryType<Query>()
                 .AddFiltering();
-            
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -64,7 +59,7 @@ namespace ForHer
             });
 
             app.UseGraphQLVoyager(new VoyagerOptions()
-            {                
+            {
                 GraphQLEndPoint = "/graphql",
 
             });

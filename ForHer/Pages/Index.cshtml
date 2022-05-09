@@ -5,6 +5,7 @@
 }
 
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
@@ -16,79 +17,82 @@
 </head>
 
 <body onload="onPageLoad()">
+ 
     <div class="container">
-
+        
+ 
+        <h1 class="form-label">Today's Song Choices</h1>
+        
+        
         <div id="songSection" class="row">
             
-            <div class="col">
-         
-                <div class="mb-3">
-                <input class="btn btn-primary btn-lg" type="button" onclick="requestAuthorization()" value="Request Authorization"><br/>
+            
 
-                
+            <div class="songCol">
+                    <h2 class="col">Song 1</h2>
+                    <iframe id="song0" style="border-radius:12px" src="" width="250" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                    <iframe id="song1" style="border-radius:12px" src="" width="250" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                    <iframe id="song2" style="border-radius:12px" src="" width="250" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
             </div>
 
+            <div class="songCol">
+                <h2 class="col">Song 2</h2>
+                  <iframe id="song3" style="border-radius:12px" src="" width="250" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                  <iframe id="song4" style="border-radius:12px" src="" width="250" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                  <iframe id="song5" style="border-radius:12px" src="" width="250" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>  
+ 
+            </div>
 
-            <div class="mb-3">
-                    <label for="songs" class="form-label">Songs</label>
-                    <iframe id="song0" style="border-radius:12px" src="https://open.spotify.com/embed/track/5FkoSXiJPKTNyYgALRJFhD?utm_source=generator" width="250" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-                    <iframe id="song0" style="border-radius:12px" src="https://open.spotify.com/embed/track/5FkoSXiJPKTNyYgALRJFhD?utm_source=generator" width="250" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-                    <iframe id="song0" style="border-radius:12px" src="https://open.spotify.com/embed/track/5FkoSXiJPKTNyYgALRJFhD?utm_source=generator" width="250" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-                </div>
-
+            <div class="songCol">
+                <h2 class="col">Song 3</h2>
+                  <iframe id="song6" style="border-radius:12px" src="" width="250" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                  <iframe id="song7" style="border-radius:12px" src="" width="250" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                  <iframe id="song8" style="border-radius:12px" src="" width="250" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>  
+ 
+            </div>
         </div>
 
  
 
-        <div id="deviceSection" class="row">
+        <div id="deviceSection" class="selection">
             <div class="col">
 
-                <form action = "" method = "post">
+                
                     <select name = "1" id="loveSongs" >
-                    <option value = "Love you" selected>Love Song 1</option>
-                    <option value = "Love you more">Love Song 2</option>
-                     <option value = "Love you more than you">Love Song 3</option>
+                    <option value = "0" selected>Love Song 1</option>
+                    <option value = "1">Love Song 2</option>
+                     <option value = "2">Love Song 3</option>
                     </select>
 
 
                     <select name = "2" id="sadSongs" >
-                    <option value = "Sad Song 1" selected>Sad Song 1</option>
-                    <option value = "Sad Song 2">Sad Song 2</option>
-                    <option value = "Sad Song 3">Sad Song 3</option>
+                    <option value = "3" selected>Sad Song 1</option>
+                    <option value = "4">Sad Song 2</option>
+                    <option value = "5">Sad Song 3</option>
                     </select>
 
 
          
                     <select name = "3" id="hardSongs" >
-                    <option value = "Hard Song 1" selected>Hard Song 1</option>
-                    <option value = "Hard Song 2">Hard Song 2</option>
-                    <option value = "Hard Song 3">Hard Song 3</option>
+                    <option value = "6" selected>Hard Song 1</option>
+                    <option value = "7">Hard Song 2</option>
+                    <option value = "8">Hard Song 3</option>
                     </select>
-                    <input type = "submit" value = "Submit" onclick = />
-                </form>
-
-
-
-
-
-                <div class="row">
-                    <div class="col">
-                        <input type="button" class="btn btn-dark" onclick="previous()" value="Prev">
-                        <input type="button" class="btn btn-dark" onclick="play()" value="Play">
-                        <input type="button" class="btn btn-dark" onclick="shuffle()" value="Shuffle">
-                        <input type="button" class="btn btn-dark" onclick="pause()" value="Pause">
-                        <input type="button" class="btn btn-dark" onclick="next()" value="Next">
-                    </div>
-                </div>
-
-
+                    <button id  = "submitSongs" class= "btn-primary" type = "button" >Submit</button>
                 
 
-               
+     
             </div>
+
+           
         </div>
+
+        <div class = "exprain">
+               <h5>Uh, the songs update every new day.</h5> 
+               <h5> Also, just a heads up, I did not code a check when adding new songs to the playlist. So if you click submit more than once, you'll end up with duplicates. Love ya :)</h5>
+           </div>
     </div>
-    </div>
+    
 
 
 </body>
