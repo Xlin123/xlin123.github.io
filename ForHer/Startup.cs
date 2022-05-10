@@ -23,7 +23,7 @@ namespace ForHer
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
-            services.AddPooledDbContextFactory<AppDbContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("ProjectConnection")));
+            services.AddPooledDbContextFactory<AppDbContext>(opt => opt.UseSqlServer(Configuration["ProjectConnection"]));
             services
                 .AddGraphQLServer()
                 .AddQueryType<Query>()

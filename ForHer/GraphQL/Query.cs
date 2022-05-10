@@ -15,6 +15,12 @@ namespace ForHer.GraphQL
             return context.Songs;
         }
 
+        [UseDbContext(typeof(AppDbContext))]
+        public IQueryable<Key> GetKeys([ScopedService] AppDbContext Context)
+        {
+            return Context.Keys;
+        }
+
 
     }
 }

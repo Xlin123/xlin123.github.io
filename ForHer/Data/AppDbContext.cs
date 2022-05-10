@@ -12,5 +12,7 @@ namespace ForHer.Data
 
         public DbSet<Song> Songs { get; set; }
 
+        public DbSet<Key> Keys { get; set; }
+
     }
 }

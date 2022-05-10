@@ -8,24 +8,22 @@ var PLAYER = "https://api.spotify.com/v1/me/player";
 var SHUFFLE = "https://api.spotify.com/v1/me/player/shuffle";
 var TRACKS = "https://api.spotify.com/v1/playlists/{{PlaylistId}}/tracks";
 
-var redirect_uri = "https://localhost:5001";
+var redirect_uri = "https://localhost:5001/";
 
-require('dotenv').config();
 
 var client_id = "efcea45a56bf49d5aacc5e35acffae4b";
-var client_secret = process.env.clientSecret;
-console.log(client_secret);
+var client_secret = "e44bd059ff3d4ee4982165b6fe051d4d";
 var access_token = null;
 var refresh_token = null;
 var todaySongs = new Array();
 var songsNames = new Array();
-var playlistId = "spotify:playlist:4s0UCwAga3JjAwTsffJBIQ";
-var userId = "dasnomea-ca";
+var playlistId = "";
+var userId = "";
 
-function onPageLoad() {
+async function onPageLoad() {
     client_id = "efcea45a56bf49d5aacc5e35acffae4b";
-    client_secret = process.env.clientSecret;
-
+    fetchKeys();
+    console.log(client_secret);
     fetchSongs();
     getUserId();
     checkPlaylists(0);
@@ -101,11 +99,11 @@ function getCode() {
         window.location.href = url; // Show Spotify's authorization screen
     }
 
-    function callAuthorizationApi(body) {
+    function callAuthorizationApi(body, key) {
         let xhr = new XMLHttpRequest();
         xhr.open("POST", TOKEN, true);
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        xhr.setRequestHeader('Authorization', 'Basic ' + btoa(client_id + ":" + client_secret));
+        xhr.setRequestHeader('Authorization', 'Basic ' + btoa(client_id + ":" + key));
         xhr.send(body);
         xhr.onload = handleAuthorizationResponse;
     }
@@ -140,7 +138,7 @@ function getCode() {
         body += "&redirect_uri=" + encodeURIComponent(redirect_uri);
         body += "&client_id=" + client_id;
         body += "&client_secret=" + client_secret;
-        callAuthorizationApi(body);
+        callAuthorizationApi(body, fetchKeys());
     }
 
     function refreshAccessToken() {
@@ -148,7 +146,7 @@ function getCode() {
         let body = "grant_type=refresh_token";
         body += "&refresh_token=" + refresh_token;
         body += "&client_id=" + client_id;
-        callAuthorizationApi(body);
+        callAuthorizationApi(body, fetchKeys());
     }
 
 
@@ -168,7 +166,7 @@ function getCode() {
 
     // FETCH QUERY BUILDERS
     function fetchSongs() {
-        url = redirect_uri + "/graphql"
+        url = redirect_uri + "graphql"
         const query = `
             query(){
 	            songs(){
@@ -178,14 +176,42 @@ function getCode() {
 	            }
             }
         `;
-        callApi("POST", url, query)
+        callSongApi("POST", url, query)
     }
 
+function fetchKeys() {
+    var url = redirect_uri + "graphql"
+    var key;
+    const query = `
+            query(){
+	            keys{
+                    secret
+
+	            }
+            }
+        `;
+    fetch(url, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+        },
+        body: JSON.stringify({
+            query
+        })
+    }).then(response => {
+        return response.json();
+    }).then(data => {
+        console.log(data.data.keys[0].secret);
+        key =data.data.keys[0].secret;
+    })
+    return key;
+}
     
     //API CALL BUILDERS
     var xml = null;
 
-    function callApi(method, url, query) {
+    function callSongApi(method, url, query) {
         fetch(url, {
             method: method,
             headers: {
@@ -201,7 +227,12 @@ function getCode() {
             handleSongsResponse(data);
         })
         
-    }
+}
+
+function callKeyApi(method, url, query) {
+    
+
+}
 
    
     function callSpotifyApi(method, url, body, callback) {
@@ -371,7 +402,13 @@ function handleAddSongs() {
             console.log(this.responseText);
             alert(this.responseText);
         }
-    }
+}
+
+function handleKeysResponse(data) {
+    
+    console.log(data.data.keys[0].secret);
+    console.log(client_secret);
+}
 
 
 
